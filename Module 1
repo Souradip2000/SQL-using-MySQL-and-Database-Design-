@@ -62,8 +62,25 @@ A table consists of ProdID, Prod_Name, CategoryID and Price. Another table consi
 We use CategoryID to link these two tables because it will save space and also be efficient in case we would want to change the Category name Clothing to Clothes.
 
 
+Summary:
+- Sql db are relatiional, NoSql db are not
+- sql db use sql for querying, NoSql db have their own querrying languages
+- sql db have a predefined schema(relations), NoSql db have dynamic schemas
+- sql db are vertically scalable, nosql db are horizontally scalabel( related to system design ).
+- sql db are table based, nosql db can be document, key-value pair, graph or wide column stores based, they use a storage model that is optimised for the
+type of data that is being stored
 
+Some applications of RDBMS :
+- track inventories, - sales, - ecommerce transactions, - banking, -finance, -billing
 
+___________________________________________________________________________________________________________________________________________________________
+
+Why select MySQL?
+A: free and open source, huge community support, extensibly tested, highly stable, available for all major platforms, 
+   replication and sharding are available, covers a wide range of use cases
+
+MySQL Server
+MySQL Workbench - Graphical tool
 
 
 
