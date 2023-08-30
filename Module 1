@@ -42,5 +42,30 @@ Examples:
 RDBMS : MySQL, MariaDB, PostgreSQL, Microsoft SQL Server
 NoSQL : MongoDB, Firebase, etc. All these have specific purpose, store specific types of data, and have specific use cases.
 
+___________________________________________________________________________________________________________________________________________________________
+
+Relational Database:  It is a way of representing data in the form of tables.
+
+- each row in the table is a record with a unique id:
+the first column is primary key and it will have a unique id for every row
+
+- the columns of the table hold attributes of the data
+eg: name, ph no of the customer
+
+- the relational model provides a standard way of representing and querying data that can be used by any application
+
+- Structured Query Language (SQL) is used to write and query data in a database.
+
+Example:
+
+A table consists of ProdID, Prod_Name, CategoryID and Price. Another table consists of CategoryId, CategoryName and Description.
+We use CategoryID to link these two tables because it will save space and also be efficient in case we would want to change the Category name Clothing to Clothes.
+
+
+
+
+
+
+
 
 
