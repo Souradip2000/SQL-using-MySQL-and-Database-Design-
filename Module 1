@@ -9,3 +9,38 @@ ________________________________________________________________________________
 
 What is a database?
 A: A database is a collection of data stored in a particular format such that it can be accessed and updated easily.
+
+Why do we need a database?
+A: Online applications like Amazon will need a database to store the user account details, the delivery address, the order status as well as all product info.
+
+We must be easily be able to Create, Read, Update and Delete (CRUD) these databases.
+Interaction with these databases need to fast and optimised. Otherwise, it'll affect the application's performance.
+
+How do we work with databases?
+A: Using a database management system(DBMS). We use this to maintain consistency in the database. So that we don't enter things like 69 under the name col
+   that will be an invalid entry.
+
+What is a DBMS?
+A: It is an interface between the end user and a database allowing users to create,read,update and delete data in the database.
+
+___________________________________________________________________________________________________________________________________________________________
+
+There are two types of databases:
+i. Relational db : SQL Db
+ii. NoSQL Db
+
+Differences between i and ii:
+
+SQL can be used to query relational db.
+SQL cannot be used to query NoSQL db. They have their own query language.
+
+Main difference is in terms of the way data is stored.
+RDBMS stores data in the form of tables that might be related to one another.
+NoSQL stores data in a more complex form.
+
+Examples:
+RDBMS : MySQL, MariaDB, PostgreSQL, Microsoft SQL Server
+NoSQL : MongoDB, Firebase, etc. All these have specific purpose, store specific types of data, and have specific use cases.
+
+
+
