@@ -82,6 +82,42 @@ A: free and open source, huge community support, extensibly tested, highly stabl
 MySQL Server
 MySQL Workbench - Graphical tool
 
+___________________________________________________________________________________________________________________________________________________________
+
+
+Administration tab :
+-  server status
+-  data export/ import
+-  shut down an instance
+
+Schema tab:
+-  contains the db we have made
+-  sys is a default db that is always present
+
+The database we create will contain -tables, and might contain -views( useful for creating dashboards ), -stored procedures( like give me the list of all the
+car purchases in the month of March, etc.) and -Functions.
+
+SELECT * FROM employees
+*  -  denotes all columns
+
+SELECT * FROM classicmodels.employees
+classicmodels - name of the db, we need to specify this if we are not in that particular database
+
+SELECT firstName, lastName FROM employees
+displays only the data of the particular two cols
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
