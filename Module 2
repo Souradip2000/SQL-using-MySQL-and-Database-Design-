@@ -1,0 +1,142 @@
+USE db_name;
+to select the database we want to query from
+
+-- used to comment in MySQL WorkBench
+
+we need to use semi-colon when there are multiple statements, the last statement may miss the semi colon, it is advisable to use semi colon in all cases
+
+SQL is case insensitive language.
+Convention to be followed : Write all the keywords like SELECT, FROM, etc. in uppercase and all the table names, attributes, etc. in lowercase
+
+WHERE 
+use it for filtering
+eg. 
+USE classicModels;
+
+SELECT *
+FROM employees
+WHERE office_code=1
+ORDER BY firstName;
+
+SELECT, FROM, WHERE AND ORDER BY are called 'clauses'.
+
+If there are two select statements, then we will get two output screens.
+
+___________________________________________________________________________________________________________________________________________________________
+
+SELECT  prodCode, 
+        prodName, 
+        buyprice, 
+        MSRP AS "Selling Price", 
+        (MSRP * 0.90) AS "Discounted Price"
+FROM products;
+
+AS - to rename the column
+we can use a mathematic expression to calculate and show the discounted price
+
+___________________________________________________________________________________________________________________________________________________________
+
+WHERE Clause
+
+SELECT *
+FROM orders
+WHERE status != "Shipped";
+
+WHERE clause is used for filtering
+we may use the following comparison operators : 
+>, < >=, <=, =, != and <> these are the same; denotes not equal to
+
+Exercise:
+
+SELECT * 
+FROM payments
+WHERE amount>=40000; 
+
+___________________________________________________________________________________________________________________________________________________________
+
+LOGICAL OPERATORS : AND, OR, NOT
+
+These operators make the WHERE clause more powerful...
+
+SELECT * 
+FROM payments
+WHERE NOT (amount <=40000 AND amount>=60000) OR date >= '2005-04-23';
+
+Precedence:
+NOT
+AND
+OR
+
+Use brackets to specify precedence.
+
+___________________________________________________________________________________________________________________________________________________________
+
+IN Operator:
+
+SELECT *
+FROM employees
+WHERE officeCode = 1 OR officeCode = 2 OR officeCode = 4;
+
+SELECT *
+FROM employees
+WHERE officeCode IN (1,2,4)
+ORDER BY officeCode;
+
+SELECT *
+FROM employees
+WHERE officeCode NOT IN (1,2,4)
+ORDER BY officeCode;
+
+___________________________________________________________________________________________________________________________________________________________
+
+BETWEEN operator:
+
+SELECT * 
+FROM customers
+WHERE creditLimit >= 20000 AND creditLimit <= 40000;
+
+SELECT * 
+FROM customers
+WHERE creditLimit BETWEEN 20000 AND 40000;
+
+___________________________________________________________________________________________________________________________________________________________
+
+LIKE Operator:
+
+Suppose we need to find out all the employees who have the word "Sale" in their Job title
+
+SELECT * 
+FROM employees 
+WHERE jobTitle LIKE "%Sale%";
+
+% specifies there can be any number of characters at that position
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
