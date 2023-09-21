@@ -194,6 +194,27 @@ ________________________________________________________________________________
 Order By clause : 
 
 
+SELECT firstName,
+       lastName,
+       customerNumber
+FROM customers
+ORDER BY city DESC;
+
+will select the specified columns from the customers table and order them in descending order by city
+to note : it will work although we have not selected to display the city
+
+ORDER BY city DESC, customerFirstName;
+here we sort by two columns, firstly by city, and then if multiple customers are from the same city, then they are ordered according to their first name
+
+
+
+___________________________________________________________________________________________________________________________________________________________
+
+
+
+LIMIT clause:
+
+used to put a limit to the number of records displayed
 
 
 
