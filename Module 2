@@ -110,12 +110,88 @@ FROM employees
 WHERE jobTitle LIKE "%Sale%";
 
 % specifies there can be any number of characters at that position
+_ specifies ther ecan be only one character at that position
+We can use multiple _ to denote the exact number of vairable characters.
+
+SELECT * 
+FROM employees 
+WHERE firstName LIKE "___y";
+
+
+___________________________________________________________________________________________________________________________________________________________
+
+
+REGEXP operator :
+
+^ ( carat operator )    -     begining of string
+$                       -     ending of string
+| ( logical operator )  -     logical or
+[abcd]                  -     with one of these
+[a-z]                   -     with any one of these within this range
+
+These are the operators that we can use with the REGEXP operator.
 
 
 
 
 
+we can use this for pattern matching.
+search in a string...
 
+SELECT * 
+FROM employees
+WHERE jobTitle REGEXP "sale";
+all the job titles that contain sale will be matched.
+
+
+to denote word sale at the begining of the string, use the ^ operator
+WHERE jobTitle REGEXP "^sale";
+
+to denote word with rep at the end, use the $ operator
+WHERE jobTitle REGEXP "rep$";
+
+to find the records of the employees whose firstName starts with L or J:
+SELECT * 
+FROM employees
+WHERE firstName REGEXP "^L | ^J";
+
+begins with any one of these:
+WHERE firstName REGEXP "^[abcde]";
+
+begins with any one these in this range:
+WHERE firstName REGEXP "^[a-h]";
+
+Ex : to select the records with names starting from a-h or ending with lie -
+SELECT * 
+FROM employees
+WHERE firstName REGEXP "^[a-h] | lie$";
+
+
+
+___________________________________________________________________________________________________________________________________________________________
+
+
+
+IS NULL Operator :
+
+used to filter out the cells where no data has been entered.
+
+SELECT *
+FROM orders
+WEHRE comments IS NULL;
+
+SELECT *
+FROM orders
+WEHRE comments IS NOT NULL;                // to find the entries that has been shipped and shipped date is not null
+
+
+
+___________________________________________________________________________________________________________________________________________________________
+
+
+
+
+Order By clause : 
 
 
 
