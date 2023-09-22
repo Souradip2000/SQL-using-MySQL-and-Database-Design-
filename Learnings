@@ -1,0 +1,7 @@
+SELECT DISTINCT
+
+DISTINCT keyword : used to select only unique records
+
+MOD(col_name, value)
+
+MOD keyword : calculates the modulus of the col_value
