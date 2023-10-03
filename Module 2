@@ -214,26 +214,27 @@ ________________________________________________________________________________
 
 LIMIT clause:
 
-used to put a limit to the number of records displayed
+used to put a limit to the number of records displayed on each page
 
 
+// displays the first 10 records
+SELECT * 
+FROM employees 
+LIMIT 10;
 
 
+// skips the first 20 records and displays the next 10 records
+SELECT * 
+FROM employees 
+LIMIT 20,10;
 
 
+Exercise : to print the top five customers with the highest credit limit
+
+SELECT *
+FROM customers
+ORDER BY creditLimit DESC
+LIMIT 5; 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+___________________________________________________________________________________________________________________________________________________________
