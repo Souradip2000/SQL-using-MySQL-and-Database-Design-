@@ -43,7 +43,7 @@ ________________________________________________________________________________
 
 
 
--- JOINING MULTIPLE TABLES :
+JOINING MULTIPLE TABLES :
 
 
 -- Orders table will have customerID, using which we can join the Customers table to retrieve the name of the customer who has placed the particular order.
@@ -76,7 +76,7 @@ ________________________________________________________________________________
 
 
 
--- SELF JOIN
+SELF JOIN
 
 
 -- In the employees table
