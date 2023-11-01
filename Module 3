@@ -79,19 +79,64 @@ ________________________________________________________________________________
 SELF JOIN
 
 
--- In the employees table
+Here we join the table with itself.
+
+-- In the employees table, there is the name of the employee and the employeeID of the person each employee reports to
+My objective is to display the name of the employee each person reports to.
+
+SELECT *
+FROM employees emp
+JOIN employees mgr
+        ON emp.reportsTo = mgr.employeeNumber;
 
 
 
+___________________________________________________________________________________________________________________________________________________________
+
+
+IMPLICIT JOIN : 
+
+Explicit Join : where we are joining tables using the join keyword.
+Example:c        SELECT      payments.customerID,
+                    customerName,
+                    amount,
+                    paymentDate
+        FROM        payments
+        INNER JOIN  customers
+                ON  payments.customerID = customers.customerID;
+
+
+Implicit Join : In implicit join, we don't use the JOIN keyword.
+Example:
+        SELECT      p.customerID,
+                    customerName,
+                    amount,
+                    paymentDate
+        FROM        payments p, customers c
+        WHERE       p.customerID = c.customerID;
 
 
 
+___________________________________________________________________________________________________________________________________________________________
+
+
+CROSS JOIN:
+
+Here, every entry of the first table is joined with each of the entries in the second table.
+Thus in there are 10 rows in the first table and 20 rows in the second table, the output displayed will have 200 rows in total.
 
 
 
+___________________________________________________________________________________________________________________________________________________________
 
 
 
+OUTER JOIN : 
+
+To understand: what orders have been placed by each customer using INNER JOIN
+
+SELECT o.customerId,
+       
 
 
 
