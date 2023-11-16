@@ -133,9 +133,23 @@ ________________________________________________________________________________
 
 OUTER JOIN : 
 
+Problem with Inner Join: we don't get all the entries in the output, the entries which satisfy only the inner join condition are displayed
+
 To understand: what orders have been placed by each customer using INNER JOIN
 
-SELECT o.customerId,
+SELECT c.customerNumber, customerName, o.orderNumber
+FROM customers c
+JOIN orders o
+  ON c.customerNumber = o.customerNumber;
+
+This query will not display the customers that haven't placed any orders.
+But suppose we want to display those customers too and the orderNumber column should display NULL
+
+-- SELECT customers who have not placed any orders
+
+SELECT c.customerNumber
+FROM customers c
+WHERE 
        
 
 
