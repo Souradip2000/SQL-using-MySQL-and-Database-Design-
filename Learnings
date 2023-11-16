@@ -5,3 +5,8 @@ DISTINCT keyword : used to select only unique records
 MOD(col_name, value)
 
 MOD keyword : calculates the modulus of the col_value
+
+Use joins because:
+   1. we might have to store the same data multiple times
+   2. if we need to change the data, then we will only have to change it in one place 
+eg. ORDERS table only contains customerID and not customerName because multiple orders can be placed by the same customer and thus...
