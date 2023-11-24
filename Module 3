@@ -91,6 +91,29 @@ JOIN employees mgr
 
 
 
+
+
+
+-- self join
+-- in the employees table, there is the employee number and name
+-- and there is the column 'reportsTo' that has the employee number of the 
+-- employee one has to report to
+
+-- now i want to display the name and job title of the persons each employee reports to
+
+-- for that we will join the employee table with itself
+
+SELECT emp.employeeID, 
+       emp.employeeName,
+       emp.reportTo,
+       mgr.employeeName AS 'mgrName'
+       mgr.jobTitle AS 'mgrTitle'
+FROM employees emp
+JOIN employees mgr
+  ON emp.reportsTo = mgr.employeeID;
+
+
+
 ___________________________________________________________________________________________________________________________________________________________
 
 
