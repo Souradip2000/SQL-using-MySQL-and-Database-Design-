@@ -184,7 +184,8 @@ Outer join is of two types:
 i. left-outer join  ii. right-outer join
 
 
-i. 
+i. Left join : this retains all the entries from the left table/ the table on which join is performed
+ii. Right join : this retains all the entries from the right table 
 
 
 -- OUTER JOIN
@@ -198,3 +199,73 @@ LEFT JOIN orders o
        ON c.customerID = o.cusotmerID;
 
 
+
+
+___________________________________________________________________________________________________________________________________________________________
+
+
+
+
+SELF-OUTER JOIN:
+
+
+-- In the case of printing the names of the managers the employees reports to, 
+-- the name of the president would not be displayed because the president reports to null.
+-- but we want to display it.
+
+We solve this using self-outer join.
+
+SELECT emp.employeeID, 
+       emp.employeeName,
+       emp.reportTo,
+       mgr.employeeName AS 'mgrName'
+       mgr.jobTitle AS 'mgrTitle'
+FROM employees emp
+LEFT JOIN employees mgr
+  ON emp.reportsTo = mgr.employeeID;
+
+We just use left outer join while joining the employees table with itself.
+
+
+
+___________________________________________________________________________________________________________________________________________________________
+
+
+
+
+USING clause:
+
+This clause is particularly helpful during joins.
+If two tables that we are joining has the same column name,
+instead of writing table1.columnName = table2.columnName
+we can write : JOIN table2
+               USING (columnName);
+
+Always keep the col name is brackets after the USING clause.
+We cannot use the USING clause if the two col names on which we are joining the tables is not the same.
+
+
+
+___________________________________________________________________________________________________________________________________________________________
+
+
+
+
+NATURAL JOIN:
+
+Here we don't specify the columns on which we want to join the tables.
+We just specify the tables we want to join.
+The computer figures out which columns are common to both the tables and joins accordingly.
+
+
+SELECT *
+FROM orders
+NATURAL JOIN customers;
+
+
+This one is not advisable because we loose control on the join condition and might get unexpected results.
+
+
+
+
+___________________________________________________________________________________________________________________________________________________________
