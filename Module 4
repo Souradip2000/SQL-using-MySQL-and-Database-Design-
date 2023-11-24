@@ -1,0 +1,16 @@
+SQL is used a lot for summarising data.
+
+Some real-life business usecases are:
+ - No of orders placed daily or monthly
+ - No of unique customers every month
+ - Yearwise increase in profits or sales
+ - Monthwise increase in enrolments
+ - Average ratings per course
+
+
+For these tasks, we'll use Aggregate Functions in MySQL. They are:
+ - MAX()
+ - MIN()
+ - AVG()
+ - SUM()
+ - COUNT()
