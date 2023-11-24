@@ -157,6 +157,7 @@ ________________________________________________________________________________
 OUTER JOIN : 
 
 Problem with Inner Join: we don't get all the entries in the output, the entries which satisfy only the inner join condition are displayed
+for inner join we can just specify the join keyword
 
 To understand: what orders have been placed by each customer using INNER JOIN
 
@@ -169,18 +170,31 @@ This query will not display the customers that haven't placed any orders.
 But suppose we want to display those customers too and the orderNumber column should display NULL
 
 -- SELECT customers who have not placed any orders
+-- writing a subquery
 
-SELECT c.customerNumber
-FROM customers c
-WHERE 
+SELECT customerNumber
+FROM customers
+WHERE customerNumber NOT IN (
+	SELECT DISTINCT custoemrNubmer
+    FROM orders 
+)
        
 
+Outer join is of two types:
+i. left-outer join  ii. right-outer join
 
 
+i. 
 
 
+-- OUTER JOIN
 
-
-
+SELECT c.customerNumber,
+       c.customerName,
+       o.orderID,
+       o.orderStatus
+FROM customers c
+LEFT JOIN orders o
+       ON c.customerID = o.cusotmerID;
 
 
