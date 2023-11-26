@@ -14,3 +14,79 @@ For these tasks, we'll use Aggregate Functions in MySQL. They are:
  - AVG()
  - SUM()
  - COUNT()
+
+
+SELECT 
+     MAX(amount)  AS "highestPayment",
+     MIN(amount),
+     AVG(amount),
+     SUM(amount),
+FROM 
+     payments;
+
+
+
+
+___________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+COUNT(): this only counts the not null values
+
+SELECT COUNT(placedDate) AS totalOrders,
+       COUNT(shippedDate) AS shippedOrders
+FROM orders;
+Output:
+totalOrders - 326
+shippedOrders - 312
+
+This shows that the records with NULL value in 'shippedOrders' field has not been counted by the COUNT function.
+
+to count all the rows we use:
+
+SELECT COUNT(*) AS totalOrders
+FROM orders;
+
+COUNT(*) counts all the rows in the table.
+
+
+-- TO FIND ORDERS THAT ARE IN PROCESS : demonstrates we can use COUNT() with other clauses too
+
+SELECT COUNT(*) AS Under process
+FROM orders
+WEHRE status = "In progress";
+
+
+-- FIND OUT MOST RECENT ORDER FROM ORDERS TABLE : to demonstrate we can use MAX(), MIN() with strings, dates, etc. other than numeric data
+
+SELECT 
+     MAX(paymentDate),
+     MIN(paymentDate),
+FROM orders;
+
+maximum of paymentDate is the largest date and the most recently placed order
+same for minimum
+
+I can do the same for strings.
+The lexicographically largest string will be the one that comes later in the dictionary.
+
+SELECT 
+     MAX(chequeNumber),
+     MIN(chequeNumber),
+FROM orders;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
