@@ -79,6 +79,138 @@ FROM orders;
 
 
 
+___________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+GROUP BY clause : 
+using it with aggregate functions
+
+-- query to find how many total products are there in the products table
+SELECT 
+    COUNT(*)
+FROM products;
+
+-- query to find the total categories there are in the products table
+SELECT
+    DISTINCT productLine
+FROM products;
+
+-- query to find the count of products in each category
+SELECT
+    productLine,
+    COUNT(*)    AS productCount
+FROM products
+GROUP BY productLine;
+
+
+
+
+
+-- GROUP BY            SYNTAX
+
+SELECT 
+    c1,c2,...,cN, aggregate function(ci)
+FROM 
+    table
+WHERE
+    condition  -- this will be used to filter out (eg. the locations only in Asia)
+GROUP BY 
+    c1,c2,...,cN;
+
+the aggregate function is not included in the GROUP BY clause.
+
+
+
+
+
+
+-- select the count of employees that work in the same office, their office code and the office location 
+SELECT 
+    e.officeCode,
+    o.city,
+    COUNT(employeeID)
+FROM employees e
+JOIN offices o
+  ON e.officeCode = o.officeCode
+GROUP BY e.officeCode, o.city;
+
+In the above query it will be completely fine if we don't mention o.city in the GROUP BY clause
+because officeCode - city is a one-one mapping.
+But if it was a one-to-many mapping, then there would have been difficulties.
+
+Suppose:
+OfficeCode    -    City
+1             -    San Francisco
+1             -    London
+1             -    Delhi
+1             -    Mumbai
+2             -    Pune
+
+In this case if we would have written only GROUP BY office code, 
+then 
+for officeCode = 1, a random city name would have been displayed.
+
+All the cities of officeCode = 1 would have been grouped as a single entity.
+
+But the problem with writing all 3 parameters is the query will take more time to execute. 
+Thus we should write only one if it will do the work just fine.
+
+The above query can also be written with the USIGN clause instead of ON clause:
+SELECT 
+    e.officeCode,
+    o.city,
+    COUNT(employeeID)
+FROM employees e
+JOIN offices o
+  USING (officeCode)
+GROUP BY e.officeCode, o.city;
+
+
+
+
+
+___________________________________________________________________________________________________________________________________________________________
+
+
+
+
+HAVING clause:
+
+filter out offices having more than 4 employees
+
+SELECT 
+    e.officeCode,
+    o.city,
+    COUNT(employeeID) AS employeeCount
+FROM employees e
+JOIN offices o
+  USING (officeCode)
+WHERE employeeCount > 4    --     this line will give an error : because the employeeCount column hasn't yet been formed
+GROUP BY e.officeCode, o.city; 
+
+
+We can use the WHERE clause for columns that have not used aggregated functions like
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
