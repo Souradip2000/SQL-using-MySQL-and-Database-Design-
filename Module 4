@@ -232,13 +232,18 @@ ________________________________________________________________________________
 
 
 
+-- query to display count of orders country-wise    and   display only the count of order > 20
+SELECT country
+    COUNT(orders) AS orderCount
+FROM orders
+GROUP BY country
+HAVING orderCount > 20;
 
 
 
 
 
-
-
+___________________________________________________________________________________________________________________________________________________________
 
 
 
