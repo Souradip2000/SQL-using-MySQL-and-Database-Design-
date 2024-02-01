@@ -99,6 +99,10 @@ SELECT *
 FROM customers
 WHERE creditLimit BETWEEN 20000 AND 40000;
 
+SELECT *
+FROM payments
+WHERE paymentDate BETWEEN '2003-04-11' AND '2004-04-11';
+
 ___________________________________________________________________________________________________________________________________________________________
 
 LIKE Operator:
