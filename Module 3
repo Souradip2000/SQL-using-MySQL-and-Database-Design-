@@ -138,6 +138,9 @@ Example:
         FROM        payments p, customers c
         WHERE       p.customerID = c.customerID;
 
+If we forget to write the WHERE clause in Implicit join, every row of the first table will be joined with every row of the second table.
+This is called cross join.
+
 
 
 ___________________________________________________________________________________________________________________________________________________________
