@@ -14,7 +14,7 @@ For these tasks, we'll use Aggregate Functions in MySQL. They are:
  - AVG()
  - SUM()
  - COUNT()
-
+aggregate functions will take a series of inputs and produce a single output
 
 SELECT 
      MAX(amount)  AS "highestPayment",
@@ -121,6 +121,7 @@ GROUP BY
     c1,c2,...,cN;
 
 the aggregate function is not included in the GROUP BY clause.
+the rule is to write all the columns c1,c2,...cN in the GROUP BY statement. It is a rule.
 
 
 
