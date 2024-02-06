@@ -159,7 +159,7 @@ All the cities of officeCode = 1 would have been grouped as a single entity.
 But the problem with writing all 3 parameters is the query will take more time to execute. 
 Thus we should write only one if it will do the work just fine.
 
-The above query can also be written with the USIGN clause instead of ON clause:
+The above query can also be written with the USING clause instead of ON clause:
 SELECT 
     e.officeCode,
     o.city,
@@ -245,6 +245,88 @@ HAVING orderCount > 20;
 
 
 ___________________________________________________________________________________________________________________________________________________________
+
+
+query 5: there is the order_id, number of products ordered, price of each product
+         task is to calculate the total value of each order( multiple items have been ordered in each order )
+
+SELECT order_id,
+       SUM(quantity * amount) AS "totalOrderValue"
+FROM orders o
+GROUP BY order_id
+ORDER BY totalOrderValue DESC;
+
+
+
+QUERY 6: same as query 5; display customer name alongwith query 5
+
+SELECT firstName,
+       order_id,
+       SUM(quantity * amount) AS "totalOrderValue"
+FROM ordersDetails od
+JOIN orders o
+  ON ordersDetails.order_id = o.order_id
+JOIN customers c
+  USING customer_id
+GROUP BY order_id
+ORDER BY totalOrderValue DESC;
+
+
+QUERY 7: also display the sales employee
+sales employee number is present in the customers table and 
+employee name is present in the employee table
+
+so in addition to query 6, join table employees using employee number and display the first name of the sales employee
+
+QUERY 8: print the number of orders that have been placed by each customer
+
+SELECT firstName,
+       COUNT(order_id) AS "ordersPlaced"
+FROM orders o
+JOIN customers c
+  USING (customer_id)
+GROUP BY customer_id;
+
+we select from orders table because there is no information regarding orders in the customer's table
+
+QUERY 9: number of orders through each sales representative
+SELECT COUNT(order_id) AS totalOrders,
+       e.employeeNumber,
+       employeeName
+FROM orders o
+JOIN customers c USING (customer_id)
+JOIN employees e 
+  ON c.salesEmpNUmber = e.employeeNumber
+GROUP BY e.employeeNumber;
+
+QUERY 10: country wise count of orders placed on each date
+
+SELECT country,
+       orderDate,
+       COUNT(*) AS totalOrders
+FROM orders o
+JOIN customers c USING (cusotmer_id)
+GROUP BY country, orderDate;
+
+QUERY 12: display all the customers who's total order value is more than 80,000
+
+SELECT customer_id,
+       firstName
+       SUM(amount) AS totalValue
+FROM orders o
+JOIN customers c USING (cusomter_id)
+GROUP BY customer_id
+HAVING totalValue > 80000;
+
+  
+
+
+
+
+
+
+
+
 
 
 
