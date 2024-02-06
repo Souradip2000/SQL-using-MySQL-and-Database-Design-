@@ -136,7 +136,7 @@ $                       -     ending of string
 These are the operators that we can use with the REGEXP operator.
 
 
-
+eg. WHERE productLine REGEXP "car" ...
 
 
 we can use this for pattern matching.
