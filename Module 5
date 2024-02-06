@@ -1,0 +1,13 @@
+SUBQUERIES
+
+-- find the products that have the same productLine as of "1917 Grand Touring Sedan"
+
+SELECT *
+FROM products
+WHERE productLine = (
+    SELECT productLine
+    FROM products
+    WHERE productName = "1917 Grand Touring Sedan"
+);
+
+-- find the cars that are costlier that carA
