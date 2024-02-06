@@ -11,3 +11,11 @@ WHERE productLine = (
 );
 
 -- find the cars that are costlier that carA
+
+SELECT *
+FROM products
+WHERE productLine REGEXP "car" AND msrp > (
+    SELECT msrp
+    FROM products
+    WHERE productName = "carA"
+)
