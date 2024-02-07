@@ -19,3 +19,43 @@ WHERE productLine REGEXP "car" AND msrp > (
     FROM products
     WHERE productName = "carA"
 )
+
+-- subquery using aggregate function : find all the cars that are costlier than the avg price of cars
+
+SELECT *
+FROM products
+WHERE productLine REGEXP "car" AND msrp > (
+    SELECT AVG(msrp)
+    FROM products
+    WHERE productLine IN {"Vintage Cars", "Classic cars"}
+)
+
+
+-- query 4: customers who have never placed any order
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
